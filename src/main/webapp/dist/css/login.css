@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Login Box styles
+   ========================================================================== */
+
+/* for logo animation */
+.login-logo {
+	opacity: 0.7; 
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease; 
+}
+
+
+.panel-animated {
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+}
