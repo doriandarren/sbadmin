@@ -332,7 +332,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-user-circle fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="userlist.html">List</a>
@@ -354,7 +354,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
+                    <h1 class="page-header">Albaranes</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -363,7 +363,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Albaranes
+                            formulario
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -379,13 +379,7 @@
                                             <input type="date" name="date" class="form-control" placeholder="Enter text">
                                         </div> 
                                         
-                                        <label for="importe">Importe</label>
-                                        <div class="form-group input-group">
-	                                    	<span class="input-group-addon">€</span>
-	                                        <input type="text" name="importe" id="importe" class="form-control">                                                                                       
-                                        </div>     
-                                        
-                                        <div class="form-group">
+                                         <div class="form-group">
                                         	<input type="hidden" name="proveedor_id" id="proveedor_id">
                                             <label>Proveedor</label>
                                             <input type="text" name="proveedor_name" id="proveedor_name" class="form-control">
@@ -393,8 +387,21 @@
                                             <a href="#listproveedores" role="button" name="proveeSearch" 
                                             			id="proveeSearch" class="btn btn-primary btn-sm" 
                                             				data-toggle="modal">Provedores</a>
-                                            
+                                            				
+                                            <br>IVA %: <div id="proveedor_iva"></div>
                                         </div>
+                                        
+                                        <label for="base_imponible">Base Imponible</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="base_imponible" id="base_imponible" class="form-control">                                                                                       
+                                        </div>
+                                        
+                                        <label for="total">Total</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="total" id="total" class="form-control">                                                                                       
+                                        </div> 
                                                                                                                                              
                                         <button type="submit" class="btn btn-submit">Save</button>
                                     </form>
@@ -451,14 +458,14 @@
                                     	<td>1</td>
                                         <td>Trident</td>
                                         <td>UU8888777</td>
-                                        <td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('1','Trident')" value="Selecc" data-dismiss="modal">
+                                        <td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('1','Trident','4')" value="Selecc" data-dismiss="modal">
                                 		</td>                                        
                                     </tr>
 									<tr class="even">
 										<td>2</td>
 										<td>Oracle</td>
 										<td>WWEEEIIR84</td>
-										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('2','Oracle')" value="Selecc" data-dismiss="modal">
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('2','Oracle','4 - 10 - 21')" value="Selecc" data-dismiss="modal">
 										</td>
 									</tr>
 
@@ -466,7 +473,7 @@
 										<td>3</td>
 										<td>Tasman</td>
 										<td>WWEEEIIR84</td>
-										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('3','Tasman')" value="Selecc" data-dismiss="modal">
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('3','Tasman','4 - 10')" value="Selecc" data-dismiss="modal">
 										</td>
 									</tr>
 
@@ -474,7 +481,7 @@
 										<td>4</td>
 										<td>Infojobs</td>
 										<td>VBVBVBVNM</td>
-										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('4','Infojobs')" value="Selecc" data-dismiss="modal">
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('4','Infojobs','4 - 10')" value="Selecc" data-dismiss="modal">
 										</td>
 									</tr>
 
@@ -482,7 +489,7 @@
 										<td>6</td>
 										<td>Java</td>
 										<td>GGGHHHYYY</td>
-										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('6','Java')" value="Selecc" data-dismiss="modal">
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('6','Java','21')" value="Selecc" data-dismiss="modal">
 										</td>
 									</tr>
 								</tbody>
@@ -520,11 +527,11 @@
 
 	<script>
 		
-		function seleccionar(id,nom){
+		function seleccionar(id,nom,iva){
 			formulario = document.getElementById('form');
 			formulario.proveedor_id.value = id;
 			formulario.proveedor_name.value = nom;
-			
+			formulario.proveedor_iva.value = iva;
 		}
 	</script>
 

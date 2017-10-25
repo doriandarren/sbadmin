@@ -332,7 +332,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-user-circle-o fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="userlist.html">List</a>
@@ -354,7 +354,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
+                    <h1 class="page-header">Facturas</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -363,23 +363,70 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            Formulario
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form">
+                                    <form role="form" id="form">
+                                    	<input type="hidden" name="id" id="id">
                                         <div class="form-group">
-                                            <label>Text Input</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <label>Número</label>
+                                            <input type="text" name="number" class="form-control" placeholder="Enter text">
+                                        </div>  
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <input type="date" name="date" class="form-control" placeholder="Enter text">
+                                        </div> 
+                                        
+                                         <div class="form-group">
+                                        	<input type="hidden" name="proveedor_id" id="proveedor_id">
+                                            <label>Proveedor</label>
+                                            <input type="text" name="proveedor_name" id="proveedor_name" class="form-control">
+                                            
+                                            <a href="#listproveedores" role="button" name="proveeSearch" 
+                                            			id="proveeSearch" class="btn btn-primary btn-sm" 
+                                            				data-toggle="modal">Provedores</a>
+                                            				
+                                            <br>IVA %: <input type="text" name="proveedor_iva" id="proveedor_iva">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="Enter text">
-                                        </div>                                                                              
-                                        <button type="submit" class="btn btn-submit">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                        
+                                        <label for="base_imponible">Base Imponible</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="base_imponible" id="base_imponible" class="form-control" 
+	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+                                        </div>
+                                        
+                                        <label for="iva4">IVA 4%</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="iva4" id="iva4" class="form-control"
+	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+                                        </div>
+                                        
+                                        <label for="iva10">IVA 10%</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="iva10" id="iva10" class="form-control"
+	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+                                        </div>
+                                        
+                                        <label for="iva21">IVA 21%</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="iva21" id="iva21" class="form-control"
+	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+                                        </div>
+                                        
+                                        <label for="total">Total</label>
+                                        <div class="form-group input-group">
+	                                    	<span class="input-group-addon">€</span>
+	                                        <input type="text" name="total" id="total" class="form-control"
+	                                        	onblur="javascript:checkTotal()">                                                                                       
+                                        </div> 
+                                                                                                                                             
+                                        <button type="submit" class="btn btn-submit">Save</button>
                                     </form>
                                 </div>                               
                             </div>
@@ -396,6 +443,97 @@
         <!-- /#page-wrapper -->
 
     </div>
+    
+    
+    <!-- Ventana Emergente Proveedores -->
+
+	<div class="modal" tabindex="-1" role="dialog" id="listproveedores">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Proveedores</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+					<p>LISTA DE COMPANYS.</p>
+					
+					<div class="panel panel-default">
+                        <div class="panel-heading">
+                            Proveedores
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>NOMBRE</th>
+                                        <th>CIF</th>
+                                        <th>ACCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd">
+                                    	<td>1</td>
+                                        <td>Trident</td>
+                                        <td>UU8888777</td>
+                                        <td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('1','Trident','4')" value="Selecc" data-dismiss="modal">
+                                		</td>                                        
+                                    </tr>
+									<tr class="even">
+										<td>2</td>
+										<td>Oracle</td>
+										<td>WWEEEIIR84</td>
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('2','Oracle','4 - 10 - 21')" value="Selecc" data-dismiss="modal">
+										</td>
+									</tr>
+
+									<tr class="odd">
+										<td>3</td>
+										<td>Tasman</td>
+										<td>WWEEEIIR84</td>
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('3','Tasman','4 - 10')" value="Selecc" data-dismiss="modal">
+										</td>
+									</tr>
+
+									<tr class="even">
+										<td>4</td>
+										<td>Infojobs</td>
+										<td>VBVBVBVNM</td>
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('4','Infojobs','4 - 10')" value="Selecc" data-dismiss="modal">
+										</td>
+									</tr>
+
+									<tr class="odd">
+										<td>6</td>
+										<td>Java</td>
+										<td>GGGHHHYYY</td>
+										<td><input type="button" class="btn btn-submit" onclick="javascript:seleccionar('6','Java','21')" value="Selecc" data-dismiss="modal">
+										</td>
+									</tr>
+								</tbody>
+                            </table>
+                           
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    
+    
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -409,6 +547,52 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+
+	<script>
+		
+		function seleccionar(id,nom,iva){
+			formulario = document.getElementById('form');
+			formulario.proveedor_id.value = id;
+			formulario.proveedor_name.value = nom;
+			formulario.proveedor_iva.value = iva;
+		}
+		
+		function checkBaseImponible(){
+			formulario = document.getElementById('form');
+			
+			var baseImp = parseFloat(formulario.base_imponible.value);
+			var iva4 = parseFloat(formulario.iva4.value);
+			var iva10 = parseFloat(formulario.iva10.value);
+			var iva21 = parseFloat(formulario.iva21.value);
+			
+			var res = iva4 + iva10 + iva21 + baseImp;
+			var tot = parseFloat(formulario.total.value);
+			
+			if(res!=tot){
+				confirm("La base imponible supera al Total");
+				return false;
+			}
+		}
+		
+		function checkTotal(){
+			formulario = document.getElementById('form');
+			
+			var baseImp = parseFloat(formulario.base_imponible.value);
+			var iva4 = parseFloat(formulario.iva4.value);
+			var iva10 = parseFloat(formulario.iva10.value);
+			var iva21 = parseFloat(formulario.iva21.value);
+			
+			var res = iva4 + iva10 + iva21 + baseImp;
+			var tot = parseFloat(formulario.total.value);
+			
+			if(tot<res){
+				confirm("El Total no debe ser menor que la base imponible / iva: 4-10-21");
+				return false;
+			}
+		}
+		
+	</script>
 
 </body>
 
