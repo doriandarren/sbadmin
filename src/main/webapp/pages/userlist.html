@@ -9,13 +9,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Form</title>
+    <title>List</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+
+	<!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    
 
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -357,36 +365,90 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
+                    <h1 class="page-header">List</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+            
+            
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            Albaranes
                         </div>
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Text Input</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="Enter text">
-                                        </div>                                                                              
-                                        <button type="submit" class="btn btn-submit">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
-                                    </form>
-                                </div>                               
-                            </div>
-                            <!-- /.row (nested) -->
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Usuario</th>
+                                        <th>Email</th>
+                                        <th>Rol</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd">
+                                    	<td>1</td>
+                                        <td>Milena</td>
+                                        <td>milena</td>
+                                        <td>mile@sysdrac.es</td>
+                                        <td>admin</td>
+                                        <td><a href="#" class="btn btn-info" role="button">Editar</a>
+											<a href="#" class="btn btn-danger" role="button"
+											onclick="return confirm('Eliminar este Registro?')">Eliminar</a>
+										</td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td>2</td>
+                                        <td>Dorian</td>
+                                        <td>dorian</td>
+                                        <td>dorian@sysdrac.es</td>
+                                        <td>admin</td>
+                                        <td><a href="#" class="btn btn-info" role="button">Editar</a>
+											<a href="#" class="btn btn-danger" role="button"
+											onclick="return confirm('Eliminar este Registro?')">Eliminar</a>
+										</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>3</td>
+                                        <td>Fredy</td>
+                                        <td>fredy</td>
+                                        <td>fredy@sysdrac.es</td>
+                                        <td>admin</td>
+                                        <td><a href="#" class="btn btn-info" role="button">Editar</a>
+											<a href="#" class="btn btn-danger" role="button"
+											onclick="return confirm('Eliminar este Registro?')">Eliminar</a>
+										</td>
+                                    </tr>  
+                                    <tr class="even">
+                                        <td>4</td>
+                                        <td>Carolina</td>
+                                        <td>carolina</td>
+                                        <td>carolina@sysdrac.es</td>
+                                        <td>user</td>
+                                        <td><a href="#" class="btn btn-info" role="button">Editar</a>
+											<a href="#" class="btn btn-danger" role="button"
+											onclick="return confirm('Eliminar este Registro?')">Eliminar</a>
+										</td>
+                                    </tr> 
+                                    <tr class="odd">
+                                        <td>5</td>
+                                        <td>Damian</td>
+                                        <td>damian</td>
+                                        <td>damian@sysdrac.es</td>
+                                        <td>invitado</td>
+                                        <td><a href="#" class="btn btn-info" role="button">Editar</a>
+											<a href="#" class="btn btn-danger" role="button"
+											onclick="return confirm('Eliminar este Registro?')">Eliminar</a>
+										</td>
+                                    </tr>                                 
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -394,7 +456,8 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+            
+            
         </div>
         <!-- /#page-wrapper -->
 
@@ -412,6 +475,22 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+
+	<!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+	<script>
+		$(document).ready(function() {
+			$('#dataTables-example').DataTable({
+				responsive : true
+			});
+		});
+	</script>
+
 
 </body>
 
