@@ -286,6 +286,9 @@
                                 <li>
                                     <a href="albaranesform.html">New</a>
                                 </li>
+                                <li>
+                                    <a href="albaranesreportform.html">Reports</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -299,6 +302,9 @@
                                 </li>
                                 <li>
                                     <a href="facturasform.html">New</a>
+                                </li>
+                                <li>
+                                    <a href="facturasreportform.html">Reports</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -391,42 +397,37 @@
                                             			id="proveeSearch" class="btn btn-primary btn-sm" 
                                             				data-toggle="modal">Provedores</a>
                                             				
-                                            <br>IVA %: <input type="text" name="proveedor_iva" id="proveedor_iva">
+                                            <div id="proveedor_iva"></div>
                                         </div>
                                         
                                         <label for="base_imponible">Base Imponible</label>
                                         <div class="form-group input-group">
 	                                    	<span class="input-group-addon">€</span>
-	                                        <input type="text" name="base_imponible" id="base_imponible" class="form-control" 
-	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+	                                        <input type="text" name="base_imponible" id="base_imponible" class="form-control" onblur="checkBaseImponible()">                                                                                       
                                         </div>
                                         
                                         <label for="iva4">IVA 4%</label>
                                         <div class="form-group input-group">
 	                                    	<span class="input-group-addon">€</span>
-	                                        <input type="text" name="iva4" id="iva4" class="form-control"
-	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+	                                        <input type="text" name="iva4" id="iva4" class="form-control" onblur="checkBaseImponible()">                                                                                       
                                         </div>
                                         
                                         <label for="iva10">IVA 10%</label>
                                         <div class="form-group input-group">
 	                                    	<span class="input-group-addon">€</span>
-	                                        <input type="text" name="iva10" id="iva10" class="form-control"
-	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+	                                        <input type="text" name="iva10" id="iva10" class="form-control" onblur="checkBaseImponible()">                                                                                       
                                         </div>
                                         
                                         <label for="iva21">IVA 21%</label>
                                         <div class="form-group input-group">
 	                                    	<span class="input-group-addon">€</span>
-	                                        <input type="text" name="iva21" id="iva21" class="form-control"
-	                                        	onblur="javascript:checkBaseImponible()">                                                                                       
+	                                        <input type="text" name="iva21" id="iva21" class="form-control" onblur="checkBaseImponible()">                                                                                       
                                         </div>
                                         
                                         <label for="total">Total</label>
                                         <div class="form-group input-group">
 	                                    	<span class="input-group-addon">€</span>
-	                                        <input type="text" name="total" id="total" class="form-control"
-	                                        	onblur="javascript:checkTotal()">                                                                                       
+	                                        <input type="text" name="total" id="total" class="form-control" onblur="checkBaseImponible()">                                                                                       
                                         </div> 
                                                                                                                                              
                                         <button type="submit" class="btn btn-submit">Save</button>
@@ -553,46 +554,48 @@
 
 
 	<script>
+	
+		/*var elementBaseImp = document.getElementById("base_imponible");
+		var elementIva4 = document.getElementById("iva4");
+		var elementIva10 = document.getElementById("iva10");
+		var elementIva21 = document.getElementById("iva21");
+		var total = document.getElementById("total");
+		
+			
+		elementBaseImp.addEventListener("blur", checkBaseImponible, true);
+		elementIva4.addEventListener("blur", checkBaseImponible, true);
+		elementIva10.addEventListener("blur", checkBaseImponible, true);
+		elementIva21.addEventListener("blur", checkBaseImponible, true);
+		total.addEventListener("blur", checkBaseImponible, true);*/
+		
+		
+		function checkBaseImponible(){			
+			var baseImp = checkFieldNumber(document.getElementById("base_imponible"));
+			var iva4 = checkFieldNumber(document.getElementById("iva4"));
+			var iva10 = checkFieldNumber(document.getElementById("iva10"));
+			var iva21 = checkFieldNumber(document.getElementById("iva21"));
+			var tot = checkFieldNumber(document.getElementById("total"));			
+			var res = iva4 + iva10 + iva21 + baseImp;
+			if(res > tot){
+				alert("La suma (base imponible + iva4 + iva10 + iva21) supera al Total");
+			}
+		}
+		
+		
+		function checkFieldNumber(field){
+			var numCheck = parseFloat(field.value.replace(",", "."));
+			if(isNaN(numCheck)){
+				numCheck=0;
+			}		
+			numCheck = numCheck.toFixed(2);
+			return parseFloat(numCheck);
+		}
+		
 		
 		function seleccionar(id,nom,iva){
-			formulario = document.getElementById('form');
-			formulario.proveedor_id.value = id;
-			formulario.proveedor_name.value = nom;
-			formulario.proveedor_iva.value = iva;
-		}
-		
-		function checkBaseImponible(){
-			formulario = document.getElementById('form');
-			
-			var baseImp = parseFloat(formulario.base_imponible.value);
-			var iva4 = parseFloat(formulario.iva4.value);
-			var iva10 = parseFloat(formulario.iva10.value);
-			var iva21 = parseFloat(formulario.iva21.value);
-			
-			var res = iva4 + iva10 + iva21 + baseImp;
-			var tot = parseFloat(formulario.total.value);
-			
-			if(res!=tot){
-				confirm("La base imponible supera al Total");
-				return false;
-			}
-		}
-		
-		function checkTotal(){
-			formulario = document.getElementById('form');
-			
-			var baseImp = parseFloat(formulario.base_imponible.value);
-			var iva4 = parseFloat(formulario.iva4.value);
-			var iva10 = parseFloat(formulario.iva10.value);
-			var iva21 = parseFloat(formulario.iva21.value);
-			
-			var res = iva4 + iva10 + iva21 + baseImp;
-			var tot = parseFloat(formulario.total.value);
-			
-			if(tot<res){
-				confirm("El Total no debe ser menor que la base imponible / iva: 4-10-21");
-				return false;
-			}
+			document.getElementById('proveedor_id').value = id;
+			document.getElementById('proveedor_name').value = nom;
+			document.getElementById('proveedor_iva').innerHTML = 'IVA %: '+iva;
 		}
 		
 	</script>

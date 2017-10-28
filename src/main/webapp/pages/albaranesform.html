@@ -286,6 +286,9 @@
                                 <li>
                                     <a href="albaranesform.html">New</a>
                                 </li>
+                                <li>
+                                    <a href="albaranesreportform.html">Reports</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -300,9 +303,13 @@
                                 <li>
                                     <a href="facturasform.html">New</a>
                                 </li>
+                                <li>
+                                    <a href="facturasreportform.html">Reports</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        
                                                 
                         <li>
                             <a href="#"><i class="fa fa-industry fa-fw"></i> Proveedores<span class="fa arrow"></span></a>
@@ -389,9 +396,8 @@
                                             
                                             <a href="#listproveedores" role="button" name="proveeSearch" 
                                             			id="proveeSearch" class="btn btn-primary btn-sm" 
-                                            				data-toggle="modal">Provedores</a>
-                                            				
-                                            <br>IVA %: <div id="proveedor_iva"></div>
+                                            				data-toggle="modal">Provedores</a>                                            				
+                                            <div id="proveedor_iva"></div>
                                         </div>
                                         
                                         <label for="base_imponible">Base Imponible</label>
@@ -531,10 +537,9 @@
 	<script>
 		
 		function seleccionar(id,nom,iva){
-			formulario = document.getElementById('form');
-			formulario.proveedor_id.value = id;
-			formulario.proveedor_name.value = nom;
-			formulario.proveedor_iva.value = iva;
+			document.getElementById('proveedor_id').value = id;
+			document.getElementById('proveedor_name').value = nom;
+			document.getElementById('proveedor_iva').innerHTML = 'IVA %: '+iva;
 		}
 	</script>
 
