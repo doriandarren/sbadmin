@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Sign In</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,23 +42,26 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Sign In</h3>
                     </div>
                     <div class="panel-body animated flipInY panel-animated">
                         <form role="form" action="selectcompany.html" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input type="email" class="form-control" placeholder="E-mail" name="email" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input type="password" class="form-control" placeholder="Password" name="password" required="required">
                                 </div>
                                 <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-default">Login</button>
+                                <div class="text-rigth">
+                                    <a href="#" class="btn btn-info" role="button">Register</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
                             </fieldset>
                         </form>
                     </div>

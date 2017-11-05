@@ -1,5 +1,4 @@
 
-
 var openEnderContent = "<div class=\"navbar-header\">\
                 <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\
                     <span class=\"sr-only\">Toggle navigation</span>\
@@ -211,7 +210,7 @@ var openEnderContent = "<div class=\"navbar-header\">\
                         <li><a href=\"#\"><i class=\"fa fa-gear fa-fw\"></i> Settings</a>\
                         </li>\
                         <li class=\"divider\"></li>\
-                        <li><a href=\"login.html\"><i class=\"fa fa-sign-out fa-fw\"></i> Logout</a>\
+                        <li><a href=\"signin.html\"><i class=\"fa fa-sign-out fa-fw\"></i> Logout</a>\
                         </li>\
                     </ul>\
                     <!-- /.dropdown-user -->\
@@ -248,6 +247,12 @@ var openEnderContent = "<div class=\"navbar-header\">\
                                 <li>\
                                     <a href=\"albaranesreportform.html\">Reports</a>\
                                 </li>\
+                               	<li>\
+                                    <a href=\"albaranesitemlist.html\">List Item</a>\
+                                </li>\
+                                <li>\
+                                    <a href=\"albaranesgeneratefacturarecibidas.html\">Generate Factura</a>\
+                                </li>\
                             </ul>\
                             <!-- /.nav-second-level -->\
                         </li>\
@@ -255,13 +260,13 @@ var openEnderContent = "<div class=\"navbar-header\">\
                             <a href=\"#\"><i class=\"fa fa-barcode fa-fw\"></i> Facturas<span class=\"fa arrow\"></span></a>\
                             <ul class=\"nav nav-second-level\">\
                                 <li>\
-                                    <a href=\"facturaslist.html\">List</a>\
+                                    <a href=\"facturasrecibidaslist.html\">List</a>\
                                 </li>\
                                 <li>\
-                                    <a href=\"facturasform.html\">New</a>\
+                                    <a href=\"facturasrecibidasform.html\">New</a>\
                                 </li>\
                                 <li>\
-                                    <a href=\"facturasreportform.html\">Reports</a>\
+                                    <a href=\"facturasrecibidasreportform.html\">Reports</a>\
                                 </li>\
                             </ul>\
                             <!-- /.nav-second-level -->\
@@ -316,7 +321,6 @@ var openEnderContent = "<div class=\"navbar-header\">\
 
 
 document.getElementById("bar_menu").innerHTML = openEnderContent;
-
 
 
 /*$(function() {
